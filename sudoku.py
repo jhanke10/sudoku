@@ -21,8 +21,13 @@ class Sudoku:
 		output = ''
 		for i in range(len(self.grid)):
 			for j in range(len(self.grid)):
+				if j > 0 and j % 3 == 0:
+					output += '| '
 				output += self.grid[i][j] + ' '
-			output += '\n'
+			if i > 0 and i+1 < 9 and (i+1) % 3 == 0:
+				output += '\n---------------------\n'
+			else:
+				output += '\n'
 		return output
 
 	#Create list of empty spots
